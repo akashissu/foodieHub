@@ -204,3 +204,4 @@ Before a production deployment, recommended next steps are:
 - `CHANGELOG.md`
 - `docs/PAP-466-architecture-plan.md`
 - `docs/IMPLEMENTATION_NOTES.md`
+<!-- langfuse-trace-test -->
