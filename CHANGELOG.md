@@ -1,5 +1,17 @@
 # Changelog
 
+## [PAP-467] - 2026-06-26
+
+### Added
+- Updated `README.md` for the **[Langfuse E2E] Trace tree smoke test** handoff.
+- Documented setup via `npm install` and standard local run commands for reviewer validation.
+- Recorded the required README marker used by the minimal observability smoke test: `<!-- langfuse-trace-test -->`.
+- Added release-facing documentation clarifying that this phase is documentation-only and does not change application source.
+
+### Notes
+- Verified the implementation handoff is anchored by a `feat(pap-467): ...` commit in git history.
+- This Scribe phase intentionally leaves app/source files untouched and prepares the repository for automated PR completion.
+
 ## [PAP-466] - 2026-06-26
 
 ### Added

@@ -1,91 +1,39 @@
-# PAP-466 Implementation Notes
+# PAP-467 Implementation Notes
 
-## Scope Completed
+## Scope
 
-FoodieHub has been implemented as a full-stack demo application that combines a polished Next.js frontend with an Express API scaffold. The current delivery is suitable for review, demo, and follow-on hardening work.
+This Scribe phase prepares documentation and release handoff materials for **PAP-467 — [Langfuse E2E] Trace tree smoke test**.
 
-## Architecture Summary
+Per role boundaries, no application code, component logic, backend source, package metadata, remotes, or PR automation commands were modified here.
 
-### Frontend
-- **Framework:** Next.js App Router
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animation:** Framer Motion
+## Implementation Summary
 
-The app exposes dedicated routes for customer flows and role-based dashboard surfaces. Shared components are used to keep the presentation consistent across landing, listing, restaurant, cart, and dashboard screens.
+The implementation artifact expected from the prior role is a minimal README marker:
 
-### Backend
-- **Framework:** Express.js
-- **Language:** TypeScript
-- **Validation:** Zod
-- **Security middleware:** Helmet, CORS
-- **Auth:** JWT utility + auth/role middleware
+- `<!-- langfuse-trace-test -->`
 
-The API is organized by route modules and supports a gradual migration from mock data to persistent storage.
+This marker is the smoke-test signal used to validate the Langfuse trace-tree E2E handoff path.
 
-## Implemented Route Surface
+## Release-Readiness Check
 
-### Web pages
-- `/`
-- `/login`
-- `/signup`
-- `/restaurants`
-- `/restaurants/[id]`
-- `/cart`
-- `/checkout`
-- `/order-success`
-- `/tracking`
-- `/profile`
-- `/admin`
-- `/owner`
+Verified during this phase:
 
-### API endpoints
-- `/api/health`
-- `/api/auth/*`
-- `/api/restaurants/*`
-- `/api/orders/*`
-- `/api/admin/*`
-- `/api/owner/*`
-- `/api/users/*`
+1. Recent git history includes a `feat(pap-467): ...` commit.
+2. Repository documentation now explains the smoke-test scope.
+3. Changelog includes a PAP-467 entry for reviewers and automated PR context.
+4. Source files remain untouched during Scribe work.
 
-## Data Model Approach
+## Reviewer Handoff
 
-Current behavior is backed by `data/mockData.ts`, which provides:
+Suggested reviewer checks:
 
-- users with role distinctions
-- restaurants with menu items and cuisine metadata
-- carts and cart items
-- coupons
-- orders and order statuses
-- dashboard metrics
+- Run `git log --oneline -5`
+- Confirm the `feat(pap-467): ...` commit is present
+- Open `README.md` and verify `<!-- langfuse-trace-test -->`
+- Review `CHANGELOG.md` for the PAP-467 entry
 
-This allows the frontend and API to demonstrate end-to-end flows without requiring immediate database provisioning.
+## Deployment / PR Completion Notes
 
-## Release Readiness Assessment
+This ticket is documentation-complete for automated PR preparation.
 
-### Ready now
-- Local install and run via npm
-- Frontend walkthrough and stakeholder demo
-- Auth flow review with seeded accounts
-- Customer browsing, cart, checkout, and tracking review
-- Admin/owner dashboard surface review
-- Backend route review for future integration
-
-### Follow-up recommended before production deployment
-1. Replace in-memory seed data with persistent storage
-2. Introduce real password hashing and secure credential lifecycle end-to-end
-3. Externalize config via environment variables and deployment secrets
-4. Add API tests and frontend integration coverage
-5. Add database migrations and seed scripts
-6. Harden role permissions across all CRUD actions
-7. Add deployment docs for web and API hosting targets
-
-## Handoff Guidance
-
-For automated PR completion or deployment review, validate:
-
-- `npm install`
-- `npm run dev:full`
-- `npm run typecheck`
-
-If persistence work is the next phase, the cleanest path is to preserve the current UI/API contracts and swap `data/mockData.ts` access behind a database-backed service layer.
+No additional deployment migration, configuration, or environment changes are required by this Scribe phase.
